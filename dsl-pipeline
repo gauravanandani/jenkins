@@ -1,0 +1,15 @@
+job('NodeJS install') {
+    scm {
+        git('https://github.com/gauravanandani/jenkins.git')
+    }
+    triggers {
+        scm('H/5 * * * *')
+    }
+    wrappers {
+	nodejs('nodejs')
+    }
+    steps {
+	shell("npm install")
+        }
+    }
+}
